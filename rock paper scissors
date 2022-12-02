@@ -1,0 +1,54 @@
+import random
+win, lose, draw = 0,0,0
+def game():
+    gamaer=input('Введите Камень, Ножницы или Бумага')
+    ai=['Камень','Ножницы','Бумага']
+    ai1=random.choice(ai)
+    global win, lose, draw
+
+    # игрок выбрал Камень
+    if gamaer.lower() == 'камень':
+            if ai1.lower() == 'камень':
+                print ('Ничья')
+                draw+=1
+            elif ai1.lower() == 'бумага':
+                print (f'Противник победил, {ai1} сильнее {gamaer.capitalize()}')
+                lose+=1
+            elif ai1.lower() == 'ножницы':
+                print (f'Вы победили, {gamaer.capitalize()} сильнее чем {ai1}')
+                win+=1
+
+    # игрок выбрал Ножницы
+    if gamaer.lower() == 'ножницы':
+            if ai1.lower() == 'ножницы':
+                print ('Ничья')
+                draw += 1
+            elif ai1.lower() == 'камень':
+                print (f'Противник победил, {ai1} сильнее {gamaer.capitalize()}')
+                lose += 1
+            elif ai1.lower() == 'бумага':
+                print (f'Вы победили, {gamaer.capitalize()} сильнее чем {ai1}')
+                win += 1
+
+    # игрок выбрал Бумага
+    if gamaer.lower() == 'бумага':
+            if ai1.lower() == 'бумага':
+                print ('Ничья')
+                draw += 1
+            elif ai1.lower() == 'ножницы':
+                print (f'Противник победил, {ai1} сильнее {gamaer.capitalize()}')
+                lose += 1
+            elif ai1.lower() == 'камень':
+                print (f'Вы победили, {gamaer.capitalize()} сильнее чем {ai1}')
+                win += 1
+
+    print('Противник выбрал', ai1)
+while True:
+    game()
+    if input("Хотите еще раз? (ДА/НЕТ)").strip().upper() != 'ДА':
+        break
+print ('Спасибо за игру')
+print ('Вы победили -', win, 'раз')
+print ('Вы проиграли -', lose, 'раз')
+print ('Была ничья -', draw, 'раз')
+print ('Всего вы сыграли -', lose+win+draw, 'раз')
