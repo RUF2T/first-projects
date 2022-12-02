@@ -1,0 +1,21 @@
+#глобальыне переменные
+alp = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+value = list(alp)
+sumo = 0
+#объявление функции
+def podchet(peremennaay):
+    sum1 = 0
+    global sumo
+    for i in range(len(peremennaay)):
+        vol = peremennaay[i]
+        sum1 += (alp.index(vol) + 1)
+    sumo += sum1
+    print('Сумма =', sum1)
+#вывод функции
+peremennaay = input ('Введите имя').lower() # Считаем сумму имени
+podchet(peremennaay)
+peremennaay = input ('Введите Фамилию').lower() # Считаем сумму фамилии
+podchet(peremennaay)
+peremennaay = input ('Введите Отчество').lower() # Считаем сумму отчества
+podchet(peremennaay)
+print ('Сумма Вашего ФИО =',sumo)
